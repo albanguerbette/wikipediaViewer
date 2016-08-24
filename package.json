@@ -14,5 +14,13 @@
   "bugs": {
     "url": "https://github.com/AlbanGuerbette/wikipedia-viewer/issues"
   },
-  "homepage": "https://github.com/AlbanGuerbette/wikipedia-viewer#readme"
+  "homepage": "https://github.com/AlbanGuerbette/wikipedia-viewer#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "browser-sync": "^2.14.0",
+    "cssnano": "^3.7.4",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^2.3.2"
+  }
 }
