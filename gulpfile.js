@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 	cssnano = require('cssnano');
 
 var sassSource = ['components/sass/**/*.scss'];
-var cssDest = ['builds/developement/css'];
+var outputDir = ['builds/developement/'];
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function () {
@@ -23,7 +23,7 @@ gulp.task('sass', function () {
 	return gulp.src(sassSource)
 		.pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer({ browsers: ['> 1%', 'last 10 versions'] }),cssnano()]))
-		.pipe(gulp.dest(cssDest))
+		.pipe(gulp.dest(outputDir + 'css'))
 		.pipe(browserSync.stream());
 });
 
