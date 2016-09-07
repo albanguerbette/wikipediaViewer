@@ -11,7 +11,7 @@ var outputDir = ['builds/developement/'];
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function () {
 	browserSync.init({
-		server: './'
+		server: outputDir
 	});
 
 	gulp.watch(sassSource, ['sass']);
