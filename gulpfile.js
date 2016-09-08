@@ -9,7 +9,7 @@ var sassSource = ['components/sass/**/*.scss'];
 var outputDir = ['builds/developement/'];
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function () {
+gulp.task('serve', ['sass', 'js'], function () {
 	browserSync.init({
 		server: outputDir
 	});
@@ -26,5 +26,11 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest(outputDir + 'css'))
 		.pipe(browserSync.stream());
 });
+
+gulp.task('js', function() {
+	gulp.src('components/scripts/app.js')
+	.pipe(gulp.dest(outputDir + 'js'));
+});
+
 
 gulp.task('default', ['serve']);
