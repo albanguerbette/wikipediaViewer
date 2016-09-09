@@ -4,6 +4,9 @@ module.exports = {
 				"node": true,
 				"jquery": true
     },
+		"globals": {
+			"Mustache": true
+		},
     "extends": "eslint:recommended",
     "rules": {
         "indent": [
