@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Wikipedia Viewer</title>
+	<meta charset="UTF-8">
+	<title>Wikipedia Viewer</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-  <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-	<main>
-
-		<div>
-
-			<form>
+	<div class="wrapper">
+		<header class="header__wrapper">
+			<h1 class="header__logo">AG</h1>
+			<h1 class="header__title">Wikipedia Viewer App</h1>
+			<form class="header__form">
+				<label name="query">Search</label>
 				<input type="text" name="query" id="textSearched">
 			</form>
+			<button class="header__btn-random">Ramdom</button>
 
-			<button>Ramdom</button>
+		</header>
 
-		</div>
+		<main class="content__wrapper">
+			<div class="app content__grid"></div>
+		</main>
 
-		<div class="app"></div>
+		<footer class="footer__wrapper">
+			<ul class="footer__social">
+				<li class="footer__social__icon">
+					<a href="https://github.com/albangu"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+				</li>
+				<li class="footer__social__icon">
+					<a href="https://twitter.com/MrBaaNaaL"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				</li>
+				<li class="footer__social__icon">
+					<a href="http://codepen.io/BaNaL"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+				</li>
+			</ul>
+			<div>
+			<h1>Credits</h1>
+			<ul>
+				<li>wikipedia API</li>
+				<li>Font Awesome</li>
+				<li>Normalize</li>
+				<li>Jquery</li>
+			</ul>
+			</div>
+		</footer>
 
-	</main>
+	</div>
 
 	<script id="responsetpl" type="text/template">
 		{{#query.search}}
-			<div class="search">
-				<h1>{{title}}</h1>
-				<div>{{{snippet}}}</div>
-			</div>
+		<div class="search">
+			<h1>{{title}}</h1>
+			<div>{{{snippet}}}</div>
+		</div>
 		{{/query.search}}
 	</script>
 
@@ -38,4 +66,5 @@
 	<script src="js/app.js"></script>
 
 </body>
+
 </html>
