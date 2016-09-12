@@ -52,7 +52,7 @@ body
         align-self: center;
     }
 }
-.header__btn-random
+.header__btn
 {
     height: 50%;
     // use vh unit for fit with .search margin
@@ -72,7 +72,7 @@ body
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.search
+.content__item
 {
     flex: 1 0 (100/3) - 2%;
 
@@ -83,7 +83,7 @@ body
     border: 1px solid white;
     background: rgba(000, 000, 000, .7);
 }
-span
+.searchmatch
 {
     font-weight: bold;
     font-style: italic;

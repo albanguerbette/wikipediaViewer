@@ -60,7 +60,7 @@ body {
         -ms-flex-item-align: center;
             align-self: center; }
 
-.header__btn-random {
+.header__btn {
   height: 50%;
   margin: 0 2vh; }
 
@@ -85,7 +85,7 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
-.search {
+.content__item {
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 31.33333%;
       -ms-flex: 1 0 31.33333%;
@@ -97,7 +97,7 @@ body {
   border: 1px solid white;
   background: rgba(0, 0, 0, 0.7); }
 
-span {
+.searchmatch {
   font-weight: bold;
   font-style: italic;
   color: #f2f2f2; }

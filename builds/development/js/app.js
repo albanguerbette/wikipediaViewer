@@ -6,7 +6,7 @@ $(document).ready(function () {
     $.getJSON(apiReq, function (data) {
       var template = $('#responsetpl').html()
       var html = Mustache.to_html(template, data)
-      $('.app').html(html)
+      $('.js-app').html(html)
     })
   }
 
