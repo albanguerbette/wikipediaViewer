@@ -7,6 +7,9 @@ $(document).ready(function () {
       var template = $('#responsetpl').html()
       var html = Mustache.to_html(template, data)
       $('.js-app').html(html)
+      $('.content__item').children('.item__title').wrap(function () {
+        return '<a href="https://en.wikipedia.org/wiki/' + $(this).text().replace(/\s/g, '_') + '"></a>'
+      })
     })
   }
 
