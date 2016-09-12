@@ -34,7 +34,7 @@ body
 }
 .header__logo
 {
-    padding: 0 1em;
+    margin: 0 2vh;
 }
 .header__title
 {
@@ -42,11 +42,21 @@ body
 }
 .header__form
 {
-    padding: 0 1em;
+    display: flex;
+
+    height: 50%;
+    label
+    {
+        margin-right: 2vh;
+
+        align-self: center;
+    }
 }
 .header__btn-random
 {
-    margin: 0 1em;
+    height: 50%;
+    // use vh unit for fit with .search margin
+    margin: 0 2vh;
 }
 .content__wrapper
 {
@@ -100,8 +110,6 @@ ul
 }
 .footer__social
 {
-    // font-size: 3rem;
-
     display: flex;
 
     border: 1px solid white;

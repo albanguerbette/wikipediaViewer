@@ -40,7 +40,7 @@ body {
           justify-content: space-around; }
 
 .header__logo {
-  padding: 0 1em; }
+  margin: 0 2vh; }
 
 .header__title {
   -webkit-box-flex: 1;
@@ -49,10 +49,20 @@ body {
           flex: 1; }
 
 .header__form {
-  padding: 0 1em; }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50%; }
+  .header__form label {
+    margin-right: 2vh;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center; }
 
 .header__btn-random {
-  margin: 0 1em; }
+  height: 50%;
+  margin: 0 2vh; }
 
 .content__wrapper {
   overflow: auto;
