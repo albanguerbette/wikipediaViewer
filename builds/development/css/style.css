@@ -97,6 +97,13 @@ body {
   border: 1px solid white;
   background: rgba(0, 0, 0, 0.7); }
 
+.item__title {
+  display: inline-block;
+  color: white; }
+
+a:visited .item__title {
+  color: red; }
+
 .searchmatch {
   font-weight: bold;
   font-style: italic;
