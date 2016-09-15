@@ -5,104 +5,116 @@
 html {
   font-size: 16px;
 }
+
 body {
   color: #fff;
-  background: linear-gradient(to left, #283048 , #859398);
+  background: linear-gradient(to left, #283048, #859398);
 }
+
 .wrapper {
   display: flex;
   height: 100vh;
   flex-direction: column;
-
   justify-content: space-between;
 }
+
 .header__wrapper {
   display: flex;
   margin-bottom: 1vh;
-  background: rgba(000, 000, 000, .7);
+  background: rgba(000, 000, 000, 0.7);
   border-bottom: 1px solid white;
-
   align-items: center;
   justify-content: space-around;
 }
+
 .header__logo {
   margin: 0 2vh;
 }
+
 .header__title {
   flex: 1;
 }
+
 .header__form {
   display: flex;
   height: 50%;
+
   label {
     margin-right: 2vh;
-
     align-self: center;
   }
 }
+
 .header__btn {
   height: 50%;
   // use vh unit for fit with .search margin
   margin: 0 2vh;
 }
+
 .content__wrapper {
   overflow: auto;
-
   flex: 1;
 }
+
 .content__grid {
   display: flex;
   padding: 0 1vh;
-
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .content__item {
   box-sizing: border-box;
-  padding: 0 1em 1em 1em;
+  padding: 0 1em 1em;
   margin: 1vh;
-  background: rgba(000, 000, 000, .7);
+  background: rgba(000, 000, 000, 0.7);
   border: 1px solid white;
-
-  flex: 1 0 (100/3) - 2%;
+  flex: 1 0 (100 / 3) - 2%;
 }
+
 .item__title {
   display: inline-block;
   color: white;
 }
+
 a:visited .item__title {
   color: red;
 }
+
 .searchmatch {
   font-style: italic;
   font-weight: bold;
   color: #f2f2f2;
 }
+
 ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
+
 .footer__wrapper {
   display: flex;
   margin-top: 1vh;
   border-top: 1px solid white;
-
   justify-content: space-around;
   align-items: center;
 }
+
 .footer__social {
   display: flex;
   border: 1px solid white;
-
   justify-content: center;
 }
+
 .footer__social__icon {
   margin: 0 1rem;
 }
+
 .fa {
   color: white;
 }
+
 .footer__credits {
   border: 1px solid white;
 }
