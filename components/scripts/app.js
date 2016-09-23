@@ -13,9 +13,17 @@ $(document).ready(function () {
     })
   }
 
-  $('#textSearched').on('input', function (e) {
-    e.preventDefault()
-    var inputText = $('#textSearched').val()
-    req(inputText)
+  var myInput = $('#textSearched')
+  // Use Observable with debounceTime to avoid querying the api on each key stroke
+  var obs = Rx.Observable.fromEvent(myInput, 'keyup')
+
+  obs
+  .debounceTime(500)
+  .map(function (event) {
+    return event.target.value
+  })
+  .subscribe(function (value) {
+    console.log(value)
+    req(value)
   })
 })
