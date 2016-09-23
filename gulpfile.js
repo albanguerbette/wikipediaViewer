@@ -32,7 +32,7 @@ gulp.task('sass', function () {
 })
 
 gulp.task('js', function () {
-  gulp.src(jsSource + 'app.js')
+  gulp.src(jsSource + '*.js')
     .pipe(gulp.dest(outputDir + 'js'))
 })
 
