@@ -5,7 +5,8 @@ module.exports = {
 				"jquery": true
     },
 		"globals": {
-			"Mustache": true
+			"Mustache": true,
+      "Rx": true
 		},
     "extends": "standard"
 };
