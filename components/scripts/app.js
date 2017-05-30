@@ -11,7 +11,7 @@ $(document).ready(() => {
       $('.content__item').children('.item__title').wrap(function () {
         return `<a href="https://en.wikipedia.org/wiki/${$(this)
           .text()
-          .replace(/\s/g, '_')}"></a>`;
+          .replace(/\s/g, '_')}" target='_blank'></a>`;
       });
     });
   };
