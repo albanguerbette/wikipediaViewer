@@ -1,4 +1,7 @@
 $(document).ready(() => {
+  $('.random-link').click(() =>
+    window.open('https://en.wikipedia.org/wiki/Special:Random')
+  );
   const req = function req(textSearched) {
     const api =
       'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=12&srprop=snippet&srsearch=';

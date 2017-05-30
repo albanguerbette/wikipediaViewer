@@ -1,6 +1,9 @@
 'use strict';
 
 $(document).ready(function () {
+  $('.random-link').click(function () {
+    return window.open('https://en.wikipedia.org/wiki/Special:Random');
+  });
   var req = function req(textSearched) {
     var api = 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=12&srprop=snippet&srsearch=';
     var apiReq = api + textSearched + '&callback=?';
