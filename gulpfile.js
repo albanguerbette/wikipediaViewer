@@ -1,9 +1,12 @@
 const gulp = require('gulp');
+const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 
 const sassSource = ['components/sass/'];
 const jsSource = ['components/scripts/'];
@@ -28,12 +31,19 @@ gulp.task('sass', () =>
     .pipe(postcss([autoprefixer({ browsers: ['> 1%', 'last 10 versions'] })]))
     .pipe(gulp.dest(`${outputDir}css`))
     .pipe(postcss([cssnano()]))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('builds/production/css'))
     .pipe(browserSync.stream())
 );
 
-gulp.task('js', () => {
-  gulp.src(`${jsSource}*.js`).pipe(gulp.dest(`${outputDir}js`));
-});
+gulp.task('js', () =>
+  gulp
+    .src(`${jsSource}*.js`)
+    .pipe(babel())
+    .pipe(gulp.dest(`${outputDir}js`))
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('builds/production/js'))
+);
 
 gulp.task('default', ['serve']);

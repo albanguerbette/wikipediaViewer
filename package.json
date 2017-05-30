@@ -17,15 +17,20 @@
   "homepage": "https://github.com/AlbanGuerbette/wikipedia-viewer#readme",
   "devDependencies": {
     "autoprefixer": "^6.4.0",
+    "babel-preset-env": "^1.5.1",
     "browser-sync": "^2.14.0",
     "cssnano": "^3.7.4",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^3.0.0",
     "mustache": "^2.2.1",
+    "stylelint": "^7.10.1",
     "stylelint-config-standard": "^13.0.0"
   }
 }
