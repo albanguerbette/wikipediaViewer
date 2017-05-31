@@ -22,9 +22,9 @@ $(document).ready(function () {
   // Use Observable with debounceTime to avoid querying the api on each key stroke
   var obs = Rx.Observable.fromEvent(myInput, 'keyup');
 
-  obs.debounceTime(500).map(function (event) {
+  obs.debounceTime(300).map(function (event) {
     return event.target.value;
   }).subscribe(function (value) {
-    req(value);
+    return req(value);
   });
 });
