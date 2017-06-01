@@ -1,30 +1,42 @@
 'use strict';
 
-$(document).ready(function () {
-  $('.random-link').click(function () {
-    return window.open('https://en.wikipedia.org/wiki/Special:Random');
-  });
-  var req = function req(textSearched) {
-    var api = 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=12&srprop=snippet&srsearch=';
-    var apiReq = api + textSearched + '&callback=?';
+var api = 'https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=12&srprop=snippet&srsearch=';
 
-    $.getJSON(apiReq, function (data) {
-      var template = $('#responsetpl').html();
-      var html = Mustache.to_html(template, data);
-      $('.js-app').html(html);
-      $('.content__item').children('.item__title').wrap(function () {
-        return '<a href="https://en.wikipedia.org/wiki/' + $(this).text().replace(/\s/g, '_') + '" target=\'_blank\'></a>';
-      });
+var btnSearch = document.getElementById('btn-search');
+var inputSearch = document.getElementById('input-search');
+var btnRandom = document.getElementById('btn-random');
+var contentsWrapper = document.getElementById('contents__wrapper');
+
+btnRandom.addEventListener('click', function () {
+  return window.open('https://en.wikipedia.org/wiki/Special:Random');
+});
+
+btnSearch.addEventListener('click', function (e) {
+  e.preventDefault();
+  contentsWrapper.innerHTML = '';
+  var search = inputSearch.value;
+  var articlesPromise = fetch('' + api + search);
+  articlesPromise.then(function (articles) {
+    return articles.json();
+  }).then(function (articles) {
+    return articles.query.search.forEach(function (article) {
+      var divContent = document.createElement('div');
+      var itemTitle = document.createElement('h1');
+      var itemSnippet = document.createElement('div');
+      var link = document.createElement('a');
+      divContent.className = 'content__item';
+      itemTitle.className = 'item__title';
+      itemSnippet.className = 'item__snippet';
+      itemTitle.innerText = '' + article.title;
+      itemSnippet.innerHTML = '' + article.snippet;
+      link.setAttribute('href', 'https://en.wikipedia.org/wiki/' + article.title.replace(/\s/g, '_'));
+      link.setAttribute('target', '_blank');
+      link.appendChild(itemTitle);
+      divContent.appendChild(link);
+      divContent.appendChild(itemSnippet);
+      contentsWrapper.appendChild(divContent);
     });
-  };
-
-  var myInput = $('#textSearched');
-  // Use Observable with debounceTime to avoid querying the api on each key stroke
-  var obs = Rx.Observable.fromEvent(myInput, 'keyup');
-
-  obs.debounceTime(300).map(function (event) {
-    return event.target.value;
-  }).subscribe(function (value) {
-    return req(value);
+  }).catch(function () {
+    return console.log('ooops');
   });
 });

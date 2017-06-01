@@ -1,30 +1,43 @@
-$(document).ready(() => {
-  $('.random-link').click(() =>
-    window.open('https://en.wikipedia.org/wiki/Special:Random')
-  );
-  const req = function req(textSearched) {
-    const api =
-      'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=12&srprop=snippet&srsearch=';
-    const apiReq = `${api + textSearched}&callback=?`;
+const api =
+  'https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=12&srprop=snippet&srsearch=';
 
-    $.getJSON(apiReq, (data) => {
-      const template = $('#responsetpl').html();
-      const html = Mustache.to_html(template, data);
-      $('.js-app').html(html);
-      $('.content__item').children('.item__title').wrap(function () {
-        return `<a href="https://en.wikipedia.org/wiki/${$(this)
-          .text()
-          .replace(/\s/g, '_')}" target='_blank'></a>`;
-      });
-    });
-  };
+const btnSearch = document.getElementById('btn-search');
+const inputSearch = document.getElementById('input-search');
+const btnRandom = document.getElementById('btn-random');
+const contentsWrapper = document.getElementById('contents__wrapper');
 
-  const myInput = $('#textSearched');
-  // Use Observable with debounceTime to avoid querying the api on each key stroke
-  const obs = Rx.Observable.fromEvent(myInput, 'keyup');
+btnRandom.addEventListener('click', () =>
+  window.open('https://en.wikipedia.org/wiki/Special:Random')
+);
 
-  obs
-    .debounceTime(300)
-    .map(event => event.target.value)
-    .subscribe(value => req(value));
+btnSearch.addEventListener('click', (e) => {
+  e.preventDefault();
+  contentsWrapper.innerHTML = '';
+  const search = inputSearch.value;
+  const articlesPromise = fetch(`${api}${search}`);
+  articlesPromise
+    .then(articles => articles.json())
+    .then(articles =>
+      articles.query.search.forEach((article) => {
+        const divContent = document.createElement('div');
+        const itemTitle = document.createElement('h1');
+        const itemSnippet = document.createElement('div');
+        const link = document.createElement('a');
+        divContent.className = 'content__item';
+        itemTitle.className = 'item__title';
+        itemSnippet.className = 'item__snippet';
+        itemTitle.innerText = `${article.title}`;
+        itemSnippet.innerHTML = `${article.snippet}`;
+        link.setAttribute(
+          'href',
+          `https://en.wikipedia.org/wiki/${article.title.replace(/\s/g, '_')}`
+        );
+        link.setAttribute('target', '_blank');
+        link.appendChild(itemTitle);
+        divContent.appendChild(link);
+        divContent.appendChild(itemSnippet);
+        contentsWrapper.appendChild(divContent);
+      })
+    )
+    .catch(() => console.log('ooops'));
 });

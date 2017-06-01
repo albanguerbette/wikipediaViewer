@@ -13,16 +13,16 @@
   <div class="wrapper">
     <header class="header__wrapper">
       <h1 class="header__title">Wikipedia Viewer App 🔎</h1>
-      <form class="header__form">
-        <label for="textSearched" class="query__label">Search</label>
-        <input type="text" id="textSearched" class="query__input">
+      <form class="form">
+        <label for="input-search" class="query__label">Search:</label>
+        <input type="text" id="input-search" class="query__input">
+        <button id="btn-search" class="btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
       </form>
-      <button class="random-link">Ramdom</button>
+      <button id="btn-random" class="btn"><i class="fa fa-random" aria-hidden="true"></i>
+</button>
     </header>
 
-    <main class="content__wrapper">
-      <div class="js-app content__grid"></div>
-    </main>
+    <main class="content__wrapper" id="contents__wrapper"></main>
 
     <footer class="footer__wrapper">
       <ul class="footer__social">
@@ -40,20 +40,6 @@
 
   </div>
 
-  <script id="responsetpl" type="text/template">
-    {{#query.search}}
-    <div class="content__item">
-      <h1 class="item__title">{{title}}</h1>
-      <div class="item__snippet">{{{snippet}}}</div>
-    </div>
-    {{/query.search}}
-  </script>
-
-
-  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
-    crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.7/dist/global/Rx.umd.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
   <script src="builds/development/js/app.js"></script>
 
 </body>
