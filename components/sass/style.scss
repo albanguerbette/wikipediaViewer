@@ -9,7 +9,7 @@ $color-grey: #e2e2e2;
 $color-dark-grey: #333;
 $color-background: rgba(000, 000, 000, 0.6);
 $color-background-hover: rgba(000, 000, 000, 0.9);
-$break-medium: 50em;
+$break-medium: 60em;
 
 /**
  *
@@ -43,17 +43,15 @@ body {
 
 .header__wrapper {
   display: flex;
-  padding: 0 2vw;
+  padding: 0 2em;
   margin-bottom: 1vh;
   background: $color-background;
   border-bottom: 10px solid $color-border;
   align-items: center;
-  justify-content: space-around;
 
   @media screen and (max-width: $break-medium) {
     flex-direction: column;
     padding: 1vh 2vw;
-    align-content: space-between;
   }
 }
 
@@ -61,18 +59,23 @@ body {
   flex: 1;
 }
 
-.header__form {
+.form {
   display: flex;
-  height: 50%;
+
+  @media screen and (max-width: $break-medium) {
+    margin: 1em 0;
+  }
 }
 
 label {
-  margin-right: 1vw;
+  text-transform: uppercase;
   align-self: center;
+  margin-right: 1em;
 }
 
 input {
   background-color: $color-background;
+  background-clip: padding-box;
   color: $color-grey;
   border-color: $color-border;
 
@@ -83,42 +86,49 @@ input {
   }
 }
 
-.random-link {
-  height: 50%;
-  margin-left: 2vh; // use vh unit to fit with .search margin
+.btn {
   background: $color-background;
   background-clip: padding-box;
   color: $color-grey;
   padding: 0.5em 1em;
   border: 2px solid $color-border;
+  text-transform: uppercase;
 
   &:hover,
   &:focus,
   &:active {
     cursor: pointer;
     background: rgba(000, 000, 000, 0.9);
-    color: lighten($color-grey, 80%);
     border-color: $color-pink;
     outline-color: $color-pink;
-  }
 
-  @media screen and (max-width: $break-medium) {
-    margin-top: 1em;
+    .fa {
+      color: $color-pink;
+    }
   }
+}
+
+.form .btn {
+  margin: 0 1em;
 }
 
 .content__wrapper {
   overflow: auto;
   flex: 1;
-}
-
-.content__grid {
   display: flex;
   padding: 0 1vh;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @media screen and (max-width: $break-medium) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }
 
+/* .content__grid {
+}
+ */
 .content__item {
   padding: 0 1em 1em;
   margin: 1vh;
