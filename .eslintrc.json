@@ -3,14 +3,9 @@
   "plugins": [
     "import"
   ],
-  "globals": {
-    "Mustache": true,
-    "Rx": true
-  },
   "env": {
     "browser": true,
-    "node": true,
-    "jquery": true
+    "node": true
   },
   "rules": {
     "comma-dangle": "off"

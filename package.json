@@ -29,7 +29,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^3.0.0",
-    "mustache": "^2.2.1",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^13.0.0"
   }

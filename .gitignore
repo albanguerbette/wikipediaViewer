@@ -1,14 +1,7 @@
 # Folders to ignore
-bower_components
 node_modules
 
 # OS or Editor folders
 .vscode
 .DS_Store
 .tmp
-
-typings
-.tern-project
-jsconfig.json
-
-
