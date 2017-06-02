@@ -14,6 +14,9 @@ btnRandom.addEventListener('click', function () {
 btnSearch.addEventListener('click', function (e) {
   e.preventDefault();
   contentsWrapper.innerHTML = '';
+  var loader = document.createElement('div');
+  loader.className = 'loader';
+  contentsWrapper.appendChild(loader);
   var search = inputSearch.value;
   var articlesPromise = fetch('' + api + search);
   articlesPromise.then(function (articles) {
@@ -34,6 +37,7 @@ btnSearch.addEventListener('click', function (e) {
       link.appendChild(itemTitle);
       divContent.appendChild(link);
       divContent.appendChild(itemSnippet);
+      loader.remove();
       contentsWrapper.appendChild(divContent);
     });
   }).catch(function () {

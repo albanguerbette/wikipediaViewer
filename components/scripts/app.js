@@ -13,6 +13,9 @@ btnRandom.addEventListener('click', () =>
 btnSearch.addEventListener('click', (e) => {
   e.preventDefault();
   contentsWrapper.innerHTML = '';
+  const loader = document.createElement('div');
+  loader.className = 'loader';
+  contentsWrapper.appendChild(loader);
   const search = inputSearch.value;
   const articlesPromise = fetch(`${api}${search}`);
   articlesPromise
@@ -36,6 +39,7 @@ btnSearch.addEventListener('click', (e) => {
         link.appendChild(itemTitle);
         divContent.appendChild(link);
         divContent.appendChild(itemSnippet);
+        loader.remove();
         contentsWrapper.appendChild(divContent);
       })
     )
