@@ -236,11 +236,6 @@ input {
     border-color: #ef1197; }
     .content__item:hover .item__title {
       color: #ef1197; }
-      .content__item:hover .item__title::after {
-        content: "\2190";
-        position: absolute;
-        -webkit-animation: arrow 0.8s 0.5s 5 ease-in;
-                animation: arrow 0.8s 0.5s 5 ease-in; }
 
 .searchmatch {
   font-weight: bold;
@@ -291,13 +286,3 @@ ul {
   color: #e2e2e2;
   -webkit-transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1); }
-
-@-webkit-keyframes arrow {
-  to {
-    -webkit-transform: translateX(20px);
-            transform: translateX(20px); } }
-
-@keyframes arrow {
-  to {
-    -webkit-transform: translateX(20px);
-            transform: translateX(20px); } }

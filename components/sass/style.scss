@@ -165,12 +165,6 @@ input {
 
     .item__title {
       color: $color-pink;
-
-      &::after {
-        content: "\2190";
-        position: absolute;
-        animation: arrow 0.8s 0.5s 5 ease-in;
-      }
     }
   }
 }
@@ -215,10 +209,4 @@ ul {
 .fa {
   color: $color-grey;
   transition: $transition;
-}
-
-@keyframes arrow {
-  to {
-    transform: translateX(20px);
-  }
 }
