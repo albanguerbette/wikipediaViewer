@@ -77,7 +77,7 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 16px;
-  font-family: "'Domine', serif"; }
+  font-family: "Domine", serif; }
 
 body {
   color: #e2e2e2;
@@ -127,7 +127,7 @@ body {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  font-family: "'Montserrat', sans-serif"; }
+  font-family: "Montserrat", sans-serif; }
 
 .form {
   display: -webkit-box;
@@ -215,7 +215,7 @@ input {
 .item__title {
   display: inline-block;
   color: #e2e2e2;
-  font-family: "'Montserrat', sans-serif";
+  font-family: "Montserrat", sans-serif;
   -webkit-transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
