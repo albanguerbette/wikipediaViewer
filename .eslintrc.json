@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb-base",
+  "extends": "eslint-config-airbnb-base",
   "plugins": [
     "import"
   ],
@@ -8,6 +8,7 @@
     "node": true
   },
   "rules": {
+    "no-console": "off",
     "comma-dangle": "off"
   }
 }
